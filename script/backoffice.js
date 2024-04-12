@@ -8,8 +8,6 @@ const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjE4ZjQwNTdmMzA0NjAwMWFlNTlmOTAiLCJpYXQiOjE3MTI5MTEzNjUsImV4cCI6MTcxNDEyMDk2NX0.2QNVHayPzH1dligIY2xNdymn-behdCm9cR1vCdHQnzo";
 
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("Product ID: " + id);
-
   const productForm = document.querySelector("#productForm");
   productForm.addEventListener("submit", handleSubmit);
 
