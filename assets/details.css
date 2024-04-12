@@ -17,10 +17,12 @@ body {
 .product-image {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  background-color: #ffcb05;
+  border: 2px solid #f4bf1a;
 }
 
 .btn-primary {
+  color: #4b4a4a;
   background-color: #ffcc00;
   border-color: #ffcc00;
   font-family: "Arial", sans-serif;
@@ -31,6 +33,7 @@ body {
 }
 
 .btn-primary:hover {
+  color: #4b4a4a;
   background-color: #f39c12;
   border-color: #f39c12;
 }
