@@ -7,6 +7,8 @@ const apiUrl = id
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjE4ZjQwNTdmMzA0NjAwMWFlNTlmOTAiLCJpYXQiOjE3MTI5MTEzNjUsImV4cCI6MTcxNDEyMDk2NX0.2QNVHayPzH1dligIY2xNdymn-behdCm9cR1vCdHQnzo";
 
+const alertcontainer = document.querySelector(".alert-container");
+
 window.addEventListener("DOMContentLoaded", () => {
   const productForm = document.querySelector("#productForm");
   productForm.addEventListener("submit", handleSubmit);
@@ -79,9 +81,19 @@ const handleSubmit = (event) => {
     })
     .then((createdProduct) => {
       if (id) {
-        alert("Products: " + createdProduct.name + " modify with success!");
+        alertcontainer.innerHTML = `
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Products: ${createdProduct.name} modified successfully!
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      `;
       } else {
-        alert("Products: " + createdProduct.name + " created with success!");
+        alertcontainer.innerHTML = `
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Products: ${createdProduct.name} created successfully!
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      `;
         event.target.reset();
       }
     })
@@ -101,9 +113,17 @@ const handleDelete = () => {
         }
       })
       .then((deleteProduct) => {
-        alert("Product: " + deleteProduct.name + " Eliminated with success!");
-        window.location.assign("./backoffice.html");
+        alertcontainer.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Products: ${deleteProduct.name} elimanted successfully!
+          <button class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="returnBackOffice()"></button>
+        </div>
+      `;
       })
       .catch((error) => console.log(error));
   }
+};
+
+const returnBackOffice = function () {
+  window.location.href = "backoffice.html";
 };

@@ -22,15 +22,13 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     .then((product) => {
       const { name, description, brand, imageUrl, price } = product;
-      container.innerHTML = `
-                    <img src="${imageUrl}" class="card-img-top product-image" alt="${name}">
-                    <div class="card-body">
-                        <h5 class="card-title">${name}</h5>
-                        <p class="card-text">${description}</p>
-                        <p class="card-text">Brand: ${brand}</p>
-                        <p class="card-text">Price: $ ${price}</p>
-                    </div>
-                `;
+      container.innerHTML = `<img src="${imageUrl}" class="card-img-top product-image" alt="${name}">
+       <div class="card-body">
+        <h5 class="card-title text-center">${name}</h5>
+        <p class="card-text">${description}</p>
+        <p class="card-text">Brand: ${brand}</p>
+        <p class="card-text">Price: $ ${price}</p>
+      </div>`;
     })
     .catch((error) => console.error("Error fetching product details:", error));
 });
