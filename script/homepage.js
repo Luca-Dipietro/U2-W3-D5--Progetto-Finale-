@@ -6,7 +6,7 @@ const productListContainer = document.getElementById("productList");
 const loadingIndicator = document.getElementById("loadingIndicator");
 loadingIndicator.classList.remove("d-none");
 
-setInterval(() => {
+setTimeout(() => {
   fetch(apiUrl, {
     method: "GET",
     headers: {
@@ -42,6 +42,7 @@ setInterval(() => {
 
         productListContainer.appendChild(productCard);
       });
+      loadingIndicator.classList.add("d-none");
     })
     .catch((error) => {
       console.error("Error fetching products:", error);
