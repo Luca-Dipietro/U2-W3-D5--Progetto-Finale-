@@ -26,7 +26,7 @@ window.addEventListener("DOMContentLoaded", () => {
     deleteBtn.classList.remove("d-none");
 
     fetch(apiUrl, {
-      method: method,
+      method,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
