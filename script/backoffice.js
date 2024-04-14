@@ -1,6 +1,5 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get("_id");
-const method = id ? "PUT" : "POST";
 const apiUrl = id
   ? "https://striveschool-api.herokuapp.com/api/product/" + id
   : "https://striveschool-api.herokuapp.com/api/product/";
@@ -26,8 +25,9 @@ window.addEventListener("DOMContentLoaded", () => {
     deleteBtn.classList.remove("d-none");
 
     fetch(apiUrl, {
-      method,
+      method: "PUT",
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
@@ -65,7 +65,7 @@ const handleSubmit = (event) => {
   };
 
   fetch(apiUrl, {
-    method,
+    method: "POST",
     body: JSON.stringify(newProduct),
     headers: {
       "Content-Type": "application/json",
